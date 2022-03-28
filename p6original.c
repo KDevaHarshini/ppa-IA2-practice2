@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 void input_string(char *a)
 {
   printf("Enter the string\n");
@@ -19,7 +19,7 @@ void revstr(char *a)
       t = a[i];
       a[i] = a[length-1 - i];
       a[length-1 - i] = t;
-    }  
+    }
 }
 void output(char *a)
 {
