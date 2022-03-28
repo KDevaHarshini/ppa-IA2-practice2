@@ -18,7 +18,7 @@ Reading symbols from a.out...done.
 (gdb) b main
 Breakpoint 1 at 0x841: file p3original.c, line 33.
 (gdb) r
-Starting program: /home/runner/ppa-IA2-practice2-2/a.out 
+Starting program: /home/runner/ppa-IA2-practice2-5/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
 Breakpoint 1, main () at p3original.c:33
@@ -34,8 +34,38 @@ Enter the number
 (gdb) n
 8
 7     return n;
-(gdb) c
-Continuing.
+(gdb) s
+8   }
+(gdb) n
+main () at p3original.c:34
+34    int composite= is_composite(n);
+(gdb) s
+is_composite (n=8) at p3original.c:11
+11    int i=2;
+(gdb) s
+12    while(i<=n/2)
+(gdb) s
+14        if(n%i==0)
+(gdb) s
+15        return 1;
+(gdb) s
+19  }
+(gdb) n
+main () at p3original.c:35
+35    output(n,composite);
+(gdb) s
+output (n=8, is_composite=1) at p3original.c:22
+22    if(is_composite)
+(gdb) s
+24      printf("%d is a composite number\n",n);
+(gdb) n
 8 is a composite number
-[Inferior 1 (process 2083) exited normally]
+30  }
+(gdb) s
+main () at p3original.c:36
+36    return 0;
+(gdb) n
+37  }(gdb) c
+Continuing.
+[Inferior 1 (process 1061) exited normally]
 (gdb) 
