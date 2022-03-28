@@ -1,4 +1,4 @@
- gcc -g p2original.c
+gcc -g p2original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -18,39 +18,85 @@ Reading symbols from a.out...done.
 (gdb) b main
 Breakpoint 1 at 0x805: file p2original.c, line 39.
 (gdb) r
-Starting program: /home/runner/ppa-IA2-practice2-1/a.out 
+Starting program: /home/runner/ppa-IA2-practice2-5/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
 Breakpoint 1, main () at p2original.c:39
-39      a=input_side();
-(gdb) n
-Enter a value
-3
-40      b=input_side();
-(gdb) n
-Enter a value
-2
-41      c=input_side();
-(gdb) n
-Enter a value
-5
-42      check_scalene(a,b,c);
+39    a=input_side();
 (gdb) s
-check_scalene (a=3, b=2, c=5) at p2original.c:12
+input_side () at p2original.c:3
+3   {
+(gdb) n
+5     printf("Enter a value\n");
+(gdb) n
+Enter a value
+6     scanf("%d",&a);
+(gdb) n
+5
+7     return a;
+(gdb) s
+8   }
+(gdb) n
+main () at p2original.c:40
+40    b=input_side();
+(gdb) s
+input_side () at p2original.c:3
+3   {
+(gdb) n
+5     printf("Enter a value\n");
+(gdb) n
+Enter a value
+6     scanf("%d",&a);
+(gdb) n
+3
+7     return a;
+(gdb) s
+8   }
+(gdb) n
+main () at p2original.c:41
+41    c=input_side();
+(gdb) s
+input_side () at p2original.c:3
+3   {
+(gdb) n
+5     printf("Enter a value\n");
+(gdb) n
+Enter a value
+6     scanf("%d",&a);
+(gdb) n
+7
+7     return a;
+(gdb) s
+8   }
+(gdb) n
+main () at p2original.c:42
+42    check_scalene(a,b,c);
+(gdb) s
+check_scalene (a=5, b=3, c=7) at p2original.c:12
 12    if(a==b && b==c)
 (gdb) s
 16    else if(a!=b && b==c && a==c)
 (gdb) s
 22      r = scalene;
 (gdb) s
-24  }
+24    }
 (gdb) n
 main () at p2original.c:43
-43      output(a,b,c,scalene);
+43    output(a,b,c,scalene);
+(gdb) s
+output (a=5, b=3, c=7, scalene=0) at p2original.c:27
+27    if(a==b && b==c)
 (gdb) n
-Triangle is Scalene
-44      return 0;
+33      printf("Triangle is scalene\n");
+(gdb) n
+Triangle is scalene
+35    }
+(gdb) s
+main () at p2original.c:44
+44    return 0;
+(gdb) n
+45  }
 (gdb) c
 Continuing.
-[Inferior 1 (process 83) exited normally]
+[Inferior 1 (process 4705) exited normally]
 (gdb) 

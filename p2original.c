@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<stdio.h>
 int input_side()
 {
   int a;
@@ -6,13 +6,13 @@ int input_side()
   scanf("%d",&a);
   return a;
 }
-  int check_scalene(int a,int b,int c)
+int check_scalene(int a,int b,int c)
 {
-   int equilateral,isosceles,scalene,r;
+  int equilateral,isosceles,scalene,r;
   if(a==b && b==c)
   {
     r = equilateral;
-  }  
+  }
   else if(a!=b && b==c && a==c)
   {
     r = isosceles;
@@ -20,26 +20,26 @@ int input_side()
   else
   {
     r = scalene;
-  } 
-}
+  }
+  }
 void output(int a,int b,int c,int scalene)
 {
   if(a==b && b==c)
   {
     printf("Triangle is Isosceles\n");
-  }    
-else
+  }
+  else 
   {
-    printf("Triangle is Scalene\n");
+    printf("Triangle is scalene\n");
   }
   }
-  int main()
-  {
-    int a,b,c,scalene;
-    a=input_side();
-    b=input_side();
-    c=input_side();
-    check_scalene(a,b,c);
-    output(a,b,c,scalene);
-    return 0;
-  }
+int main()
+{
+  int a,b,c,scalene;
+  a=input_side();
+  b=input_side();
+  c=input_side();
+  check_scalene(a,b,c);
+  output(a,b,c,scalene);
+  return 0;
+}
